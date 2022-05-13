@@ -65,7 +65,7 @@ spec:
           value: "false"
         - name: MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED
           value: "false"
-        image: ghcr.io/jaguchi/blog-counter-making@sha256:34ea838d6dbede309b531a9a5085f4a330553b054f5475113436f629d5143910
+        image: ghcr.io/jaguchi/blog-counter-making@sha256:6b7ea474b26b376eb895ddcba4d0edbb32c66fb2ad1f8e70170b0e4a0064ec25
         name: workload
         ports:
         - containerPort: 8080
