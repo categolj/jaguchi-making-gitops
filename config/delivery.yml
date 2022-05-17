@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/part-of: note
     apps.tanzu.vmware.com/workload-type: web
-    kapp.k14s.io/app: "1652717635565996852"
+    kapp.k14s.io/app: "1652723551831905078"
     kapp.k14s.io/association: v1.47c6d61d908e85d7ecd50f335d8e4008
     app.kubernetes.io/component: run
     carto.run/workload-name: note
@@ -26,7 +26,7 @@ spec:
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
         kapp.k14s.io/identity: v1;making/carto.run/Workload/note;carto.run/v1alpha1
-        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"note","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1652717635565996852","kapp.k14s.io/association":"v1.47c6d61d908e85d7ecd50f335d8e4008"},"name":"note","namespace":"making"},"spec":{"env":[{"name":"GITHUB_ACCESS_TOKEN","value":"${k8s.bindings.note-config.github_access_token}"},{"name":"GITHUB_WEBHOOK_SECRET","value":"${k8s.bindings.note-config.github_webhook_secret}"},{"name":"SPRING_SECURITY_USER_NAME","value":"${k8s.bindings.note-config.note_username}"},{"name":"SPRING_SECURITY_USER_PASSWORD","value":"${k8s.bindings.note-config.note_password}"},{"name":"SPRING_SENDGRID_API_KEY","value":"${k8s.bindings.note-config.sendgrid_api_key}"},{"name":"JWT_SIGNING_KEY","value":"file:///bindings/note-config/private_key.pem"},{"name":"JWT_VERIFIER_KEY","value":"file:///bindings/note-config/public.pem"},{"name":"JAVA_TOOL_OPTIONS","value":"-XX:ReservedCodeCacheSize=32M -Xss512k -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Dfile.encoding=UTF-8"},{"name":"BPL_JVM_THREAD_COUNT","value":"20"},{"name":"SERVER_TOMCAT_MAX_THREADS","value":"4"},{"name":"SPRING_APPLICATION_JSON","value":"{\n  \"spring.datasource.hikari.data-source-properties.allowMultiQueries\": true,\n  \"spring.datasource.hikari.data-source-properties.useSSL\": false\n}\n"},{"name":"MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED","value":"false"},{"name":"SPRING_ZIPKIN_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_EXPORT_PROMETHEUS_RSOCKET_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED","value":"false"},{"name":"INFO_JAVA_VERSION","value":"${java.vm.version} / ${java.vm.name}"},{"name":"INFO_JAVA_VENDOR","value":"${java.vm.vendor}"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_branch","value":"note"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_repository","value":"ssh://git@github.com/categolj/jaguchi-making-gitops.git"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-ssh"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"serviceClaims":[{"name":"note-db","ref":{"apiVersion":"v1","kind":"Secret","name":"note-db"}},{"name":"note-config","ref":{"apiVersion":"v1","kind":"Secret","name":"note-config"}}],"source":{"git":{"ref":{"branch":"master"},"url":"ssh://git@github.com/making/note.git"}}}}'
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"note","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1652723551831905078","kapp.k14s.io/association":"v1.47c6d61d908e85d7ecd50f335d8e4008"},"name":"note","namespace":"making"},"spec":{"env":[{"name":"GITHUB_ACCESS_TOKEN","value":"${k8s.bindings.note-config.github_access_token}"},{"name":"GITHUB_WEBHOOK_SECRET","value":"${k8s.bindings.note-config.github_webhook_secret}"},{"name":"SPRING_SECURITY_USER_NAME","value":"${k8s.bindings.note-config.note_username}"},{"name":"SPRING_SECURITY_USER_PASSWORD","value":"${k8s.bindings.note-config.note_password}"},{"name":"SPRING_SENDGRID_API_KEY","value":"${k8s.bindings.note-config.sendgrid_api_key}"},{"name":"JWT_SIGNING_KEY","value":"file:///bindings/note-config/private_key.pem"},{"name":"JWT_VERIFIER_KEY","value":"file:///bindings/note-config/public.pem"},{"name":"JAVA_TOOL_OPTIONS","value":"-XX:ReservedCodeCacheSize=32M -Xss512k -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Dfile.encoding=UTF-8"},{"name":"BPL_JVM_THREAD_COUNT","value":"20"},{"name":"SERVER_TOMCAT_MAX_THREADS","value":"4"},{"name":"SPRING_APPLICATION_JSON","value":"{\n  \"spring.datasource.hikari.data-source-properties.allowMultiQueries\": true,\n  \"spring.datasource.hikari.data-source-properties.useSSL\": false\n}\n"},{"name":"MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED","value":"false"},{"name":"SPRING_ZIPKIN_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_EXPORT_PROMETHEUS_RSOCKET_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED","value":"false"},{"name":"INFO_JAVA_VERSION","value":"${java.vm.version} / ${java.vm.name}"},{"name":"INFO_JAVA_VENDOR","value":"${java.vm.vendor}"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_branch","value":"note"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_repository","value":"ssh://git@github.com/categolj/jaguchi-making-gitops.git"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-ssh"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"serviceClaims":[{"name":"note-db","ref":{"apiVersion":"v1","kind":"Secret","name":"note-db"}},{"name":"note-config","ref":{"apiVersion":"v1","kind":"Secret","name":"note-config"}}],"source":{"git":{"ref":{"branch":"master"},"url":"ssh://git@github.com/making/note.git"}}}}'
         kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
         services.conventions.apps.tanzu.vmware.com/mysql: mysql-connector-java/8.0.22
       labels:
@@ -35,7 +35,7 @@ spec:
         apps.tanzu.vmware.com/workload-type: web
         carto.run/workload-name: note
         conventions.apps.tanzu.vmware.com/framework: spring-boot
-        kapp.k14s.io/app: "1652717635565996852"
+        kapp.k14s.io/app: "1652723551831905078"
         kapp.k14s.io/association: v1.47c6d61d908e85d7ecd50f335d8e4008
         services.conventions.apps.tanzu.vmware.com/mysql: workload
         tanzu.app.live.view: "true"
@@ -85,7 +85,7 @@ spec:
           value: ${java.vm.version} / ${java.vm.name}
         - name: INFO_JAVA_VENDOR
           value: ${java.vm.vendor}
-        image: ghcr.io/jaguchi/note-making@sha256:c664e95bb60382872fe766b042e09eddf380b8187d8b00126681e98fa0048648
+        image: ghcr.io/jaguchi/note-making@sha256:2d59af0d7712e3dfd88ec5aa4e6028bcaea3aaec38c70b8cb14343bc7fe92940
         name: workload
         ports:
         - containerPort: 8080
