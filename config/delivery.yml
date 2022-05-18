@@ -85,7 +85,7 @@ spec:
           value: ${java.vm.version} / ${java.vm.name}
         - name: INFO_JAVA_VENDOR
           value: ${java.vm.vendor}
-        image: ghcr.io/jaguchi/note-making@sha256:2d59af0d7712e3dfd88ec5aa4e6028bcaea3aaec38c70b8cb14343bc7fe92940
+        image: ghcr.io/jaguchi/note-making@sha256:34122cdba645401141be2d2a3a5928ebded288799f7f9c200037cc700d805a8c
         name: workload
         ports:
         - containerPort: 8080
