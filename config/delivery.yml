@@ -65,7 +65,7 @@ spec:
           value: "false"
         - name: MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED
           value: "false"
-        image: ghcr.io/jaguchi/blog-api-making@sha256:c75c42504ef978f1be0a47e134bdbaf5f5cfaa7dad59ba44b68d86aca1c269ee
+        image: ghcr.io/jaguchi/blog-api-making@sha256:991d7e528995a6453f01e0385c218b6fa6a7f8de92508436c7a690e073cee1b2
         livenessProbe:
           httpGet:
             path: /livez
