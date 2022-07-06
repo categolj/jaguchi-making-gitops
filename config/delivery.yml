@@ -17,6 +17,7 @@ spec:
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.7.1
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
+          sample-convention/add-env-var
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
@@ -68,6 +69,8 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
+        - name: CONVENTION_SERVER
+          value: HELLO FROM CONVENTION
         image: ghcr.io/jaguchi/blog-frontend-making@sha256:f702db57cef6feb546936042326e6ef103ecd1e71c8bedd030672f141f711b99
         livenessProbe:
           httpGet:
