@@ -17,7 +17,6 @@ spec:
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.6.7
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
-          sample-convention/add-env-var
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-graceful-shutdown
           spring-boot-convention/spring-boot-web
@@ -79,8 +78,6 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        - name: CONVENTION_SERVER
-          value: HELLO FROM CONVENTION
         image: ghcr.io/jaguchi/blog-translation-making@sha256:5f3e20eedfab9a4b5442307eb3955264a4c1afc96fa42f17224594085c67df98
         livenessProbe:
           httpGet:
