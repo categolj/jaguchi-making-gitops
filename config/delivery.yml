@@ -17,7 +17,6 @@ spec:
         boot.spring.io/actuator: http://:8081/actuator
         boot.spring.io/version: 2.5.13
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
-          sample-convention/add-env-var
           spring-boot-convention/spring-boot
           spring-boot-convention/spring-boot-web
           spring-boot-convention/spring-boot-actuator
@@ -73,8 +72,6 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        - name: CONVENTION_SERVER
-          value: HELLO FROM CONVENTION
         image: ghcr.io/jaguchi/blog-counter-making@sha256:6c6f21a04a9c761088b047c19aa5773f448f43a3db7e3579d2e8c9f8d912f78c
         name: workload
         ports:
