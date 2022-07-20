@@ -26,13 +26,14 @@ spec:
           spring-boot-convention/spring-boot-actuator
           spring-boot-convention/spring-boot-actuator-probes
           spring-boot-convention/service-intent-postgres
-          appliveview-sample/app-live-view-connector
-          appliveview-sample/app-live-view-appflavours
+          appliveview-sample/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-connector-boot
+          appliveview-sample/app-live-view-appflavours-boot
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
         inspect-image.buildpacks.io/base-image: |-
-          reference: ghcr.io/jaguchi/build-service@sha256:ec6b4df5da0d22786a15a64540a7d6465193f59ac3d4eb707c06dd29d0874933
-          top_layer: sha256:68affdc487c70ce84b41688af2adb80bcc9b3185125848dc18d8aaae29ba142c
+          reference: ghcr.io/jaguchi/build-service@sha256:df540c820fb2438ab90e5a71c62f6941275351b7b559697f77ff4993b2beb02a
+          top_layer: sha256:0fbfc7861cb593acbde0769c43ac76f4d90027a3329c91964b0c3d64b716f804
         inspect-image.buildpacks.io/buildpacks: |-
           - id: paketo-buildpacks/ca-certificates
             version: 3.2.4
@@ -41,7 +42,7 @@ spec:
           - id: paketo-buildpacks/syft
             version: 1.10.1
           - id: paketo-buildpacks/maven
-            version: 6.6.0
+            version: 6.5.5
           - id: paketo-buildpacks/executable-jar
             version: 6.2.4
           - id: paketo-buildpacks/apache-tomcat
@@ -51,10 +52,10 @@ spec:
           - id: paketo-buildpacks/dist-zip
             version: 5.2.4
           - id: paketo-buildpacks/spring-boot
-            version: 5.13.0
+            version: 5.12.0
           - id: paketo-buildpacks/image-labels
             version: 4.1.2
-        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:093eed10f59fa49b9e5c61a8707f6e7315e30f44b788cd5e30bb277c7f1ec153
+        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:df540c820fb2438ab90e5a71c62f6941275351b7b559697f77ff4993b2beb02a
         kapp.k14s.io/identity: v1;making/carto.run/Workload/blog-translation;carto.run/v1alpha1
         kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"blog-translation","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1652458369973999701","kapp.k14s.io/association":"v1.9480b56dd3dc3c393fbef1f8bc5e1d50"},"name":"blog-translation","namespace":"making"},"spec":{"build":{"env":[{"name":"BP_JVM_VERSION","value":"17.*"}]},"env":[{"name":"TRANSLATOR_BLOGAPIURL","value":"http://blog-api.making.svc.cluster.local"},{"name":"TRANSLATOR_GOOGLEAPIKEY","value":"${k8s.bindings.translation-config.google-api-key}"},{"name":"JAVA_TOOL_OPTIONS","value":"-XX:ReservedCodeCacheSize=32M -Xss512k -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Dfile.encoding=UTF-8"},{"name":"SERVER_PORT","value":"${PORT}"},{"name":"BPL_JVM_THREAD_COUNT","value":"28"},{"name":"SPRING_SQL_INIT_MODE","value":"always"},{"name":"SPRING_DATASOURCE_HIKARI_DATASOURCEPROPERTIES_SSLFACTORY","value":"org.postgresql.ssl.DefaultJavaSSLFactory"},{"name":"SPRING_PROFILES_ACTIVE","value":"kubernetes"},{"name":"MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED","value":"false"},{"name":"MANAGEMENT_INFO_ENV_ENABLED","value":"true"},{"name":"MANAGEMENT_INFO_JAVA_ENABLED","value":"true"},{"name":"MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_TAGS_SPRING_BOOT_VERSION","value":"${info.maven.versions.spring-boot}"},{"name":"MANAGEMENT_METRICS_TAGS_JAVA_VERSION","value":"${java.version}"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1","prometheus.io/path":"/actuator/prometheus","prometheus.io/port":"8081","prometheus.io/scrape":"true"}},{"name":"gitops_branch","value":"blog-translation"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_repository","value":"ssh://git@github.com/categolj/jaguchi-making-gitops.git"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-ssh"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"serviceClaims":[{"name":"blog-db","ref":{"apiVersion":"v1","kind":"Secret","name":"blog-db"}},{"name":"translation-config","ref":{"apiVersion":"v1","kind":"Secret","name":"translation-config"}},{"name":"blog-db-tls-ca","ref":{"apiVersion":"v1","kind":"Secret","name":"blog-db-tls-ca-bindable"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/categolj/blog-translation"}}}}'
         kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
@@ -108,7 +109,7 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        image: ghcr.io/jaguchi/blog-translation-making@sha256:3f576951f77f556a5c69c45cf1c98e310ba5c91ef08768416e8fd3fb6d5fc0a7
+        image: ghcr.io/jaguchi/blog-translation-making@sha256:3f1e2ffc483e97d25530026f80837c00569daedf9c457b26e2ba4941883e82f0
         livenessProbe:
           httpGet:
             path: /livez
