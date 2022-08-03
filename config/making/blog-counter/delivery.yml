@@ -1,0 +1,89 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: blog-counter
+  labels:
+    app.kubernetes.io/part-of: blog-counter
+    apps.tanzu.vmware.com/workload-type: web
+    kapp.k14s.io/app: "1652371448423378397"
+    kapp.k14s.io/association: v1.65172dfe364852d2cd26cd3f71ef0682
+    app.kubernetes.io/component: run
+    carto.run/workload-name: blog-counter
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        boot.spring.io/actuator: http://:8081/actuator
+        boot.spring.io/version: 2.5.13
+        conventions.apps.tanzu.vmware.com/applied-conventions: |-
+          spring-boot-convention/spring-boot
+          spring-boot-convention/spring-boot-web
+          spring-boot-convention/spring-boot-actuator
+          spring-boot-convention/service-intent-mongodb
+          appliveview-sample/app-live-view-appflavour-check
+          appliveview-sample/app-live-view-connector-boot
+          appliveview-sample/app-live-view-appflavours-boot
+          appliveview-sample/app-live-view-systemproperties
+        developer.conventions/target-containers: workload
+        kapp.k14s.io/identity: v1;making/carto.run/Workload/blog-counter;carto.run/v1alpha1
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"blog-counter","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1652371448423378397","kapp.k14s.io/association":"v1.65172dfe364852d2cd26cd3f71ef0682"},"name":"blog-counter","namespace":"making"},"spec":{"env":[{"name":"LOGGING_LEVEL_WEB","value":"info"},{"name":"JAVA_TOOL_OPTIONS","value":"-XX:ReservedCodeCacheSize=32M -Xss512k -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Dfile.encoding=UTF-8"},{"name":"SERVER_PORT","value":"${PORT}"},{"name":"BPL_JVM_THREAD_COUNT","value":"28"},{"name":"SPRING_PROFILES_ACTIVE","value":"kubernetes"},{"name":"SPRING_DATA_MONGODB_AUTOINDEXCREATION","value":"false"},{"name":"SPRING_ZIPKIN_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_TAGS_SPRING_BOOT_VERSION","value":"${info.maven.versions.spring-boot}"},{"name":"MANAGEMENT_METRICS_TAGS_JAVA_VERSION","value":"${java.version}"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1","prometheus.io/path":"/actuator/prometheus","prometheus.io/port":"8081","prometheus.io/scrape":"true"}},{"name":"gitops_branch","value":"blog-counter"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_repository","value":"ssh://git@github.com/categolj/jaguchi-making-gitops.git"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-ssh"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"serviceClaims":[{"name":"counter-db","ref":{"apiVersion":"v1","kind":"Secret","name":"counter-db"}}],"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/categolj/blog-counter"}}}}'
+        kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
+        prometheus.io/path: /actuator/prometheus
+        prometheus.io/port: "8081"
+        prometheus.io/scrape: "true"
+        services.conventions.apps.tanzu.vmware.com/mongodb: mongodb-driver-core/4.2.3
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: blog-counter
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: blog-counter
+        conventions.apps.tanzu.vmware.com/framework: spring-boot
+        kapp.k14s.io/app: "1652371448423378397"
+        kapp.k14s.io/association: v1.65172dfe364852d2cd26cd3f71ef0682
+        services.conventions.apps.tanzu.vmware.com/mongodb: workload
+        tanzu.app.live.view: "true"
+        tanzu.app.live.view.application.actuator.port: "8081"
+        tanzu.app.live.view.application.flavours: spring-boot
+        tanzu.app.live.view.application.name: blog-counter
+    spec:
+      containers:
+      - env:
+        - name: LOGGING_LEVEL_WEB
+          value: info
+        - name: JAVA_TOOL_OPTIONS
+          value: -XX:ReservedCodeCacheSize=32M -Xss512k -Dfile.encoding="UTF-8" -Dmanagement.endpoint.health.show-details=always -Dmanagement.endpoints.web.base-path="/actuator" -Dmanagement.endpoints.web.exposure.include=* -Dmanagement.server.port="8081" -Dserver.port="8080" -Duser.country="JP" -Duser.language="ja" -Duser.timezone="Asia/Tokyo"
+        - name: SERVER_PORT
+          value: ${PORT}
+        - name: BPL_JVM_THREAD_COUNT
+          value: "28"
+        - name: SPRING_PROFILES_ACTIVE
+          value: kubernetes
+        - name: SPRING_DATA_MONGODB_AUTOINDEXCREATION
+          value: "false"
+        - name: SPRING_ZIPKIN_ENABLED
+          value: "false"
+        - name: MANAGEMENT_METRICS_EXPORT_WAVEFRONT_ENABLED
+          value: "false"
+        - name: MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED
+          value: "false"
+        - name: MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED
+          value: "false"
+        - name: MANAGEMENT_METRICS_TAGS_SPRING_BOOT_VERSION
+          value: ${info.maven.versions.spring-boot}
+        - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
+          value: ${java.version}
+        image: ghcr.io/jaguchi/blog-counter-making@sha256:55bfac19a92a4ecb5b6a38bd44b474f07f87dd69ae00c5593de2ad795afea7d7
+        name: workload
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 256Mi
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
