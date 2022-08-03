@@ -26,13 +26,13 @@ spec:
         inspect-image.buildpacks.io/buildpacks: |-
           - id: paketo-buildpacks/ca-certificates
             version: 3.2.3
-          - id: tanzu-buildpacks/node-engine
+          - id: tanzu-buildpacks/node-engine-lite
             version: 0.9.2
-          - id: tanzu-buildpacks/yarn
+          - id: tanzu-buildpacks/yarn-lite
             version: 0.4.1
           - id: tanzu-buildpacks/yarn-install
             version: 0.5.0
-          - id: tanzu-buildpacks/node-module-bom
+          - id: tanzu-buildpacks/node-module-bom-lite
             version: 0.1.8
           - id: tanzu-buildpacks/node-run-script
             version: 0.2.5
@@ -53,7 +53,7 @@ spec:
         kapp.k14s.io/association: v1.6a999d082abe27d057b1183b494e54f7
     spec:
       containers:
-      - image: ghcr.io/jaguchi/blog-ui-making@sha256:39862b42b59b0634c708cdee4aaeb90632b774ce24379a4c2272c34e8a83a13b
+      - image: ghcr.io/jaguchi/blog-ui-making@sha256:9b05843c3939b3615e8607bd35f0dfc4f4ed771627ddb7b72cf132fe90a96aa9
         name: workload
         resources:
           limits:
