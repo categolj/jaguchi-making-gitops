@@ -1,0 +1,41 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: blog-ui
+  labels:
+    app.kubernetes.io/part-of: blog-ui
+    apps.tanzu.vmware.com/workload-type: web
+    kapp.k14s.io/app: "1658680678048937464"
+    kapp.k14s.io/association: v1.6a999d082abe27d057b1183b494e54f7
+    app.kubernetes.io/component: run
+    carto.run/workload-name: blog-ui
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "1"
+        conventions.apps.tanzu.vmware.com/applied-conventions: appliveview-sample/app-live-view-appflavour-check
+        developer.conventions/target-containers: workload
+        kapp.k14s.io/identity: v1;making/carto.run/Workload/blog-ui;carto.run/v1alpha1
+        kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"blog-ui","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1658680678048937464","kapp.k14s.io/association":"v1.6a999d082abe27d057b1183b494e54f7"},"name":"blog-ui","namespace":"making"},"spec":{"build":{"env":[{"name":"BP_NODE_RUN_SCRIPTS","value":"build"},{"name":"BP_NODE_OPTIMIZE_MEMORY","value":"true"},{"name":"REACT_APP_BLOG_API","value":"auto"},{"name":"REACT_APP_BLOG_UI","value":"auto"},{"name":"NODE_ENV","value":"production"}]},"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_branch","value":"main"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_server_address","value":"https://github.com"},{"name":"gitops_repository_owner","value":"categolj"},{"name":"gitops_repository_name","value":"jaguchi-making-gitops"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-basic"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/categolj/blog-ui"}}}}'
+        kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
+      labels:
+        app.kubernetes.io/component: run
+        app.kubernetes.io/part-of: blog-ui
+        apps.tanzu.vmware.com/workload-type: web
+        carto.run/workload-name: blog-ui
+        kapp.k14s.io/app: "1658680678048937464"
+        kapp.k14s.io/association: v1.6a999d082abe27d057b1183b494e54f7
+    spec:
+      containers:
+      - image: ghcr.io/jaguchi/blog-ui-making@sha256:b319b7a2e302ebdcd840a3ed682d90bd1662d798f08101c063110218f4de50f5
+        name: workload
+        resources:
+          limits:
+            memory: 256Mi
+          requests:
+            memory: 256Mi
+        securityContext:
+          runAsUser: 1000
+      serviceAccountName: default
+
