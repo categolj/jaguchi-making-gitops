@@ -31,8 +31,8 @@ spec:
           appliveview-sample/app-live-view-systemproperties
         developer.conventions/target-containers: workload
         inspect-image.buildpacks.io/base-image: |-
-          reference: ghcr.io/jaguchi/build-service@sha256:df540c820fb2438ab90e5a71c62f6941275351b7b559697f77ff4993b2beb02a
-          top_layer: sha256:0fbfc7861cb593acbde0769c43ac76f4d90027a3329c91964b0c3d64b716f804
+          reference: ghcr.io/jaguchi/build-service@sha256:ec6b4df5da0d22786a15a64540a7d6465193f59ac3d4eb707c06dd29d0874933
+          top_layer: sha256:68affdc487c70ce84b41688af2adb80bcc9b3185125848dc18d8aaae29ba142c
         inspect-image.buildpacks.io/buildpacks: |-
           - id: paketo-buildpacks/ca-certificates
             version: 3.2.3
@@ -104,7 +104,7 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        image: ghcr.io/jaguchi/blog-api-making@sha256:54193720780bfe79f695776afa385d0e7b3a6514748d5ae903668a1110fbee09
+        image: ghcr.io/jaguchi/blog-api-making@sha256:01f927317ba47be32f97ca8c56266e9636d823b0ac13f4d798df603029c6f3de
         livenessProbe:
           httpGet:
             path: /livez
