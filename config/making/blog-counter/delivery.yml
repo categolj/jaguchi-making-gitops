@@ -101,7 +101,7 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        image: ghcr.io/jaguchi/blog-counter-making@sha256:55bfac19a92a4ecb5b6a38bd44b474f07f87dd69ae00c5593de2ad795afea7d7
+        image: ghcr.io/jaguchi/blog-counter-making@sha256:526919132b8a752bc258442715f0f810a7d45b9403d669305e0ea81f56feaf39
         name: workload
         ports:
         - containerPort: 8080
