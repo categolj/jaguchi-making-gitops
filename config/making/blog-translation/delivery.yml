@@ -15,7 +15,7 @@ spec:
       annotations:
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
-        boot.spring.io/version: 2.6.7
+        boot.spring.io/version: 2.7.2
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
           inspect-image-convention/buildpacks
           inspect-image-convention/base-image
@@ -62,7 +62,7 @@ spec:
         prometheus.io/path: /actuator/prometheus
         prometheus.io/port: "8081"
         prometheus.io/scrape: "true"
-        services.conventions.apps.tanzu.vmware.com/postgres: postgresql/42.3.4
+        services.conventions.apps.tanzu.vmware.com/postgres: postgresql/42.3.6
       labels:
         app.kubernetes.io/component: run
         app.kubernetes.io/part-of: blog-translation
@@ -112,7 +112,7 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        image: ghcr.io/jaguchi/blog-translation-making@sha256:4ea1700e2f41801fd1f15d63ce4869ca9aac36d27656fe28d69a7e6809da410f
+        image: ghcr.io/jaguchi/blog-translation-making@sha256:35c20bbd5224437d1716125fc3bc967ce44f0fc91fb054c9cde1817e593018d9
         livenessProbe:
           httpGet:
             path: /livez
