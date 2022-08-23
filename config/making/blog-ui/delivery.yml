@@ -40,7 +40,7 @@ spec:
             version: 0.3.0
           - id: paketo-buildpacks/image-labels
             version: 4.1.2
-        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:df540c820fb2438ab90e5a71c62f6941275351b7b559697f77ff4993b2beb02a
+        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:ec6b4df5da0d22786a15a64540a7d6465193f59ac3d4eb707c06dd29d0874933
         kapp.k14s.io/identity: v1;making/carto.run/Workload/blog-ui;carto.run/v1alpha1
         kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"blog-ui","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1658680678048937464","kapp.k14s.io/association":"v1.6a999d082abe27d057b1183b494e54f7"},"name":"blog-ui","namespace":"making"},"spec":{"build":{"env":[{"name":"BP_NODE_RUN_SCRIPTS","value":"build"},{"name":"BP_NODE_OPTIMIZE_MEMORY","value":"true"},{"name":"REACT_APP_BLOG_API","value":"auto"},{"name":"REACT_APP_BLOG_UI","value":"auto"},{"name":"NODE_ENV","value":"production"}]},"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1"}},{"name":"gitops_branch","value":"main"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_server_address","value":"https://github.com"},{"name":"gitops_repository_owner","value":"categolj"},{"name":"gitops_repository_name","value":"jaguchi-making-gitops"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-basic"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"source":{"git":{"ref":{"branch":"main"},"url":"https://github.com/categolj/blog-ui"}}}}'
         kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
@@ -53,7 +53,7 @@ spec:
         kapp.k14s.io/association: v1.6a999d082abe27d057b1183b494e54f7
     spec:
       containers:
-      - image: ghcr.io/jaguchi/blog-ui-making@sha256:0ae8357c0d275c7778498a739fae939233d74bf8adb3b566d063dd0e45185ad0
+      - image: ghcr.io/jaguchi/blog-ui-making@sha256:401eac162bb1cc40622e8a1bca3bb17e4c13c5dd4425c29cab853a44c99e012f
         name: workload
         resources:
           limits:
