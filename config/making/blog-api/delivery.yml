@@ -15,7 +15,7 @@ spec:
       annotations:
         autoscaling.knative.dev/minScale: "1"
         boot.spring.io/actuator: http://:8081/actuator
-        boot.spring.io/version: 2.7.2
+        boot.spring.io/version: 2.7.3
         conventions.apps.tanzu.vmware.com/applied-conventions: |-
           inspect-image-convention/buildpacks
           inspect-image-convention/base-image
@@ -54,7 +54,7 @@ spec:
             version: 5.11.0
           - id: paketo-buildpacks/image-labels
             version: 4.1.2
-        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:df540c820fb2438ab90e5a71c62f6941275351b7b559697f77ff4993b2beb02a
+        inspect-image.buildpacks.io/run-image: ghcr.io/jaguchi/build-service@sha256:ec6b4df5da0d22786a15a64540a7d6465193f59ac3d4eb707c06dd29d0874933
         kapp.k14s.io/identity: v1;making/carto.run/Workload/blog-api;carto.run/v1alpha1
         kapp.k14s.io/original: '{"apiVersion":"carto.run/v1alpha1","kind":"Workload","metadata":{"labels":{"app.kubernetes.io/part-of":"blog-api","apps.tanzu.vmware.com/workload-type":"web","kapp.k14s.io/app":"1652367621415458985","kapp.k14s.io/association":"v1.7ee4e362e558ea745e2e56340a5bf6ae"},"name":"blog-api","namespace":"making"},"spec":{"env":[{"name":"JAVA_TOOL_OPTIONS","value":"-XX:ReservedCodeCacheSize=32M -Xss512k -Duser.timezone=Asia/Tokyo -Duser.language=ja -Duser.country=JP -Dfile.encoding=UTF-8"},{"name":"BPL_JVM_THREAD_COUNT","value":"28"},{"name":"SPRING_RSOCKET_SERVER_FRAGMENTSIZE","value":"16MB"},{"name":"SPRING_PROFILES_ACTIVE","value":"kubernetes"},{"name":"BLOG_GITHUB_ACCESS_TOKEN","valueFrom":{"secretKeyRef":{"key":"github-access-token","name":"blog-config"}}},{"name":"BLOG_GITHUB_WEBHOOK_SECRET","valueFrom":{"secretKeyRef":{"key":"github-webhook-secret","name":"blog-config"}}},{"name":"MANAGEMENT_ENDPOINT_HEAPDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_ENDPOINT_THREADDUMP_ENABLED","value":"false"},{"name":"MANAGEMENT_METRICS_TAGS_SPRING_BOOT_VERSION","value":"${info.maven.versions.spring-boot}"},{"name":"MANAGEMENT_METRICS_TAGS_JAVA_VERSION","value":"${java.version}"}],"params":[{"name":"annotations","value":{"autoscaling.knative.dev/minScale":"1","prometheus.io/path":"/actuator/prometheus","prometheus.io/port":"8081","prometheus.io/scrape":"true"}},{"name":"gitops_branch","value":"main"},{"name":"gitops_commit_message","value":"Bump"},{"name":"gitops_server_address","value":"https://github.com"},{"name":"gitops_repository_owner","value":"categolj"},{"name":"gitops_repository_name","value":"jaguchi-making-gitops"},{"name":"gitops_user_email","value":"makingx+bot@gmail.com"},{"name":"gitops_user_name","value":"making-bot"},{"name":"gitops_ssh_secret","value":"git-basic"}],"resources":{"limits":{"memory":"256Mi"},"requests":{"memory":"256Mi"}},"serviceClaims":[{"name":"blog-db","ref":{"apiVersion":"v1","kind":"Secret","name":"blog-db"}},{"name":"blog-db-tls-ca","ref":{"apiVersion":"v1","kind":"Secret","name":"blog-db-tls-ca-bindable"}}],"source":{"git":{"ref":{"branch":"rsocket"},"url":"https://github.com/categolj/blog-api"}}}}'
         kapp.k14s.io/original-diff-md5: c6e94dc94aed3401b5d0f26ed6c0bff3
@@ -104,7 +104,7 @@ spec:
           value: ${info.maven.versions.spring-boot}
         - name: MANAGEMENT_METRICS_TAGS_JAVA_VERSION
           value: ${java.version}
-        image: ghcr.io/jaguchi/blog-api-making@sha256:01f927317ba47be32f97ca8c56266e9636d823b0ac13f4d798df603029c6f3de
+        image: ghcr.io/jaguchi/blog-api-making@sha256:159efe890e7db2493f51e546fd6bef360c0c74969b912aafaeda53629ad44516
         livenessProbe:
           httpGet:
             path: /livez
